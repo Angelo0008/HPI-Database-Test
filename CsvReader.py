@@ -18,6 +18,7 @@ def ReadProcess1Csv():
     global dfVt1
     
     dfVt1 = pd.read_csv(r'\\192.168.2.10\csv\csv\VT1\log000_1.csv', encoding='latin1')
+    # dfVt1 = pd.read_csv(r'\\192.168.2.19\ai_team\AI Program\Outputs\FC1 CSV\VT1\log000_1.csv', encoding='latin1')
     dfVt1.columns = ["Process 1 DATA No",
         "Process 1 DATE",
         "Process 1 TIME",
@@ -45,7 +46,7 @@ def ReadProcess1Csv():
     dfVt1['Process 1 DateTime'] = pd.to_datetime(dfVt1['Process 1 DATE'] + ' ' + dfVt1['Process 1 TIME'])
     
     # Optionally drop the original date and time columns if you don't need them anymore
-    dfVt1 = dfVt1.drop(['Process 1 DATE', 'Process 1 TIME'], axis=1)
+    # dfVt1 = dfVt1.drop(['Process 1 DATE', 'Process 1 TIME'], axis=1)
     
     # Reorder columns to move DateTime to second position
     cols = dfVt1.columns.tolist()
@@ -58,6 +59,7 @@ def ReadProcess2Csv():
     global dfVt2
     
     dfVt2 = pd.read_csv(r'\\192.168.2.10\csv\csv\VT2\log000_2.csv', encoding='latin1')
+    # dfVt2 = pd.read_csv(r'\\192.168.2.19\ai_team\AI Program\Outputs\FC1 CSV\VT2\log000_2.csv', encoding='latin1')
     dfVt2.columns = ["Process 2 DATA No",
         "Process 2 DATE",
         "Process 2 TIME",
@@ -87,7 +89,7 @@ def ReadProcess2Csv():
     dfVt2['Process 2 DateTime'] = pd.to_datetime(dfVt2['Process 2 DATE'] + ' ' + dfVt2['Process 2 TIME'])
     
     # Optionally drop the original date and time columns if you don't need them anymore
-    dfVt2 = dfVt2.drop(['Process 2 DATE', 'Process 2 TIME'], axis=1)
+    # dfVt2 = dfVt2.drop(['Process 2 DATE', 'Process 2 TIME'], axis=1)
     
     # Reorder columns to move DateTime to second position
     cols = dfVt2.columns.tolist()
@@ -100,6 +102,7 @@ def ReadProcess3Csv():
     global dfVt3
     
     dfVt3 = pd.read_csv(r'\\192.168.2.10\csv\csv\VT3\log000_3.csv', encoding='latin1')
+    # dfVt3 = pd.read_csv(r'\\192.168.2.19\ai_team\AI Program\Outputs\FC1 CSV\VT3\log000_3.csv', encoding='latin1')
     dfVt3.columns = ["Process 3 DATA No",
         "Process 3 DATE",
         "Process 3 TIME",
@@ -149,7 +152,7 @@ def ReadProcess3Csv():
     dfVt3['Process 3 DateTime'] = pd.to_datetime(dfVt3['Process 3 DATE'] + ' ' + dfVt3['Process 3 TIME'])
     
     # Optionally drop the original date and time columns if you don't need them anymore
-    dfVt3 = dfVt3.drop(['Process 3 DATE', 'Process 3 TIME'], axis=1)
+    # dfVt3 = dfVt3.drop(['Process 3 DATE', 'Process 3 TIME'], axis=1)
     
     # Reorder columns to move DateTime to second position
     cols = dfVt3.columns.tolist()
@@ -161,6 +164,7 @@ def ReadProcess4Csv():
     global dfVt4
     
     dfVt4 = pd.read_csv(r'\\192.168.2.10\csv\csv\VT4\log000_4.csv', encoding='latin1')
+    # dfVt4 = pd.read_csv(r'\\192.168.2.19\ai_team\AI Program\Outputs\FC1 CSV\VT4\log000_4.csv', encoding='latin1')
     dfVt4.columns = ["Process 4 DATA No",
         "Process 4 DATE",
         "Process 4 TIME",
@@ -204,7 +208,7 @@ def ReadProcess4Csv():
     dfVt4['Process 4 DateTime'] = pd.to_datetime(dfVt4['Process 4 DATE'] + ' ' + dfVt4['Process 4 TIME'])
     
     # Optionally drop the original date and time columns if you don't need them anymore
-    dfVt4 = dfVt4.drop(['Process 4 DATE', 'Process 4 TIME'], axis=1)
+    # dfVt4 = dfVt4.drop(['Process 4 DATE', 'Process 4 TIME'], axis=1)
     
     # Reorder columns to move DateTime to second position
     cols = dfVt4.columns.tolist()
@@ -216,6 +220,7 @@ def ReadProcess5Csv():
     global dfVt5
     
     dfVt5 = pd.read_csv(r'\\192.168.2.10\csv\csv\VT5\log000_5.csv', encoding='latin1')
+    # dfVt5 = pd.read_csv(r'\\192.168.2.19\ai_team\AI Program\Outputs\FC1 CSV\VT5\log000_5.csv', encoding='latin1')
     dfVt5.columns = ["Process 5 DATA No",
         "Process 5 DATE",
         "Process 5 TIME",
@@ -235,7 +240,7 @@ def ReadProcess5Csv():
     dfVt5['Process 5 DateTime'] = pd.to_datetime(dfVt5['Process 5 DATE'] + ' ' + dfVt5['Process 5 TIME'])
     
     # Optionally drop the original date and time columns if you don't need them anymore
-    dfVt5 = dfVt5.drop(['Process 5 DATE', 'Process 5 TIME'], axis=1)
+    # dfVt5 = dfVt5.drop(['Process 5 DATE', 'Process 5 TIME'], axis=1)
     
     # Reorder columns to move DateTime to second position
     cols = dfVt5.columns.tolist()
@@ -247,6 +252,7 @@ def ReadProcess6Csv():
     global dfVt6
     
     dfVt6 = pd.read_csv(r'\\192.168.2.10\csv\csv\VT6\log000_6.csv', encoding='latin1')
+    # dfVt6 = pd.read_csv(r'\\192.168.2.19\ai_team\AI Program\Outputs\FC1 CSV\VT6\log000_6.csv', encoding='latin1')
     dfVt6.columns = ["Process 6 DATA No",
         "Process 6 DATE",
         "Process 6 TIME",
@@ -266,7 +272,7 @@ def ReadProcess6Csv():
     dfVt6['Process 6 DateTime'] = pd.to_datetime(dfVt6['Process 6 DATE'] + ' ' + dfVt6['Process 6 TIME'])
     
     # Optionally drop the original date and time columns if you don't need them anymore
-    dfVt6 = dfVt6.drop(['Process 6 DATE', 'Process 6 TIME'], axis=1)
+    # dfVt6 = dfVt6.drop(['Process 6 DATE', 'Process 6 TIME'], axis=1)
     
     # Reorder columns to move DateTime to second position
     cols = dfVt6.columns.tolist()

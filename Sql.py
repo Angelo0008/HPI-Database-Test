@@ -42,6 +42,8 @@ def CreateProcess1Table():
         CREATE TABLE IF NOT EXISTS process1_data(
             Process_1_DATA_No VARCHAR(64),
             Process_1_DateTime VARCHAR(64) PRIMARY KEY,
+            Process_1_DATE VARCHAR(64),
+            Process_1_TIME VARCHAR(64),
             Process_1_Model_Code VARCHAR(64),
             Process_1_S_N VARCHAR(64),
             Process_1_ID VARCHAR(64),
@@ -71,6 +73,8 @@ def CreateProcess2Table():
         CREATE TABLE IF NOT EXISTS process2_data(
             Process_2_DATA_No VARCHAR(64),
             Process_2_DateTime VARCHAR(64) PRIMARY KEY,
+            Process_2_DATE VARCHAR(64),
+            Process_2_TIME VARCHAR(64),
             Process_2_Model_Code VARCHAR(64),
             Process_2_S_N VARCHAR(64),
             Process_2_ID VARCHAR(64),
@@ -102,6 +106,8 @@ def CreateProcess3Table():
         CREATE TABLE IF NOT EXISTS process3_data(
             Process_3_DATA_No VARCHAR(64),
             Process_3_DateTime VARCHAR(64) PRIMARY KEY,
+            Process_3_DATE VARCHAR(64),
+            Process_3_TIME VARCHAR(64),
             Process_3_Model_Code VARCHAR(64),
             Process_3_S_N VARCHAR(64),
             Process_3_ID VARCHAR(64),
@@ -153,6 +159,8 @@ def CreateProcess4Table():
         CREATE TABLE IF NOT EXISTS process4_data(
             Process_4_DATA_No VARCHAR(64),
             Process_4_DateTime VARCHAR(64) PRIMARY KEY,
+            Process_4_DATE VARCHAR(64),
+            Process_4_TIME VARCHAR(64),
             Process_4_Model_Code VARCHAR(64),
             Process_4_S_N VARCHAR(64),
             Process_4_ID VARCHAR(64),
@@ -198,6 +206,8 @@ def CreateProcess5Table():
         CREATE TABLE IF NOT EXISTS process5_data(
             Process_5_DATA_No VARCHAR(64),
             Process_5_DateTime VARCHAR(64) PRIMARY KEY,
+            Process_5_DATE VARCHAR(64),
+            Process_5_TIME VARCHAR(64),
             Process_5_Model_Code VARCHAR(64),
             Process_5_S_N VARCHAR(64),
             Process_5_ID VARCHAR(64),
@@ -219,6 +229,8 @@ def CreateProcess6Table():
         CREATE TABLE IF NOT EXISTS process6_data(
             Process_6_DATA_No VARCHAR(64),
             Process_6_DateTime VARCHAR(64) PRIMARY KEY,
+            Process_6_DATE VARCHAR(64),
+            Process_6_TIME VARCHAR(64),
             Process_6_Model_Code VARCHAR(64),
             Process_6_S_N VARCHAR(64),
             Process_6_ID VARCHAR(64),
@@ -616,6 +628,8 @@ def InsertDataToProcess1Table(df):
         INSERT INTO process1_data (
             Process_1_DATA_No,
             Process_1_DateTime,
+            Process_1_DATE,
+            Process_1_TIME,
             Process_1_Model_Code,
             Process_1_S_N,
             Process_1_ID,
@@ -635,7 +649,7 @@ def InsertDataToProcess1Table(df):
             Process_1_Actual_Time,
             Process_1_NG_Cause,
             Process_1_Repaired_Action
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     
     # Execute the insert only for new records
@@ -668,6 +682,8 @@ def InsertDataToProcess2Table(df):
         INSERT INTO process2_data (
             Process_2_DATA_No,
             Process_2_DateTime,
+            Process_2_DATE,
+            Process_2_TIME,
             Process_2_Model_Code,
             Process_2_S_N,
             Process_2_ID,
@@ -689,7 +705,7 @@ def InsertDataToProcess2Table(df):
             Process_2_Actual_Time,
             Process_2_NG_Cause,
             Process_2_Repaired_Action
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     
     # Execute the insert only for new records
@@ -722,6 +738,8 @@ def InsertDataToProcess3Table(df):
         INSERT INTO process3_data (
             Process_3_DATA_No,
             Process_3_DateTime,
+            Process_3_DATE,
+            Process_3_TIME,
             Process_3_Model_Code,
             Process_3_S_N,
             Process_3_ID,
@@ -763,7 +781,7 @@ def InsertDataToProcess3Table(df):
             Process_3_Actual_Time,
             Process_3_NG_Cause,
             Process_3_Repaired_Action
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     
     # Execute the insert only for new records
@@ -796,6 +814,8 @@ def InsertDataToProcess4Table(df):
         INSERT INTO process4_data (
             Process_4_DATA_No,
             Process_4_DateTime,
+            Process_4_DATE,
+            Process_4_TIME,
             Process_4_Model_Code,
             Process_4_S_N,
             Process_4_ID,
@@ -831,7 +851,7 @@ def InsertDataToProcess4Table(df):
             Process_4_Actual_Time,
             Process_4_NG_Cause,
             Process_4_Repaired_Action
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     
     # Execute the insert only for new records
@@ -864,6 +884,8 @@ def InsertDataToProcess5Table(df):
         INSERT INTO process5_data (
             Process_5_DATA_No,
             Process_5_DateTime,
+            Process_5_DATE,
+            Process_5_TIME,
             Process_5_Model_Code,
             Process_5_S_N,
             Process_5_ID,
@@ -875,7 +897,7 @@ def InsertDataToProcess5Table(df):
             Process_5_Actual_Time,
             Process_5_NG_Cause,
             Process_5_Repaired_Action
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     
     # Execute the insert only for new records
@@ -908,6 +930,8 @@ def InsertDataToProcess6Table(df):
         INSERT INTO process6_data (
             Process_6_DATA_No,
             Process_6_DateTime,
+            Process_6_DATE,
+            Process_6_TIME,
             Process_6_Model_Code,
             Process_6_S_N,
             Process_6_ID,
@@ -919,7 +943,7 @@ def InsertDataToProcess6Table(df):
             Process_6_Actual_Time,
             Process_6_NG_Cause,
             Process_6_Repaired_Action
-        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     
     # Execute the insert only for new records

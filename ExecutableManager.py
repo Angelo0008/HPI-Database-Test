@@ -30,7 +30,13 @@ def RunProcess1ToSql():
             VariableManager.process1Loading.config(text="TRANSFERRING TO SQL")
             print("Changes Detected")
             
-            CsvReader.ReadProcess1Csv()
+            while True:
+                try:
+                    CsvReader.ReadProcess1Csv()
+                    break
+                except:
+                    pass
+
             Sql.InsertDataToProcess1Table(CsvReader.dfVt1)
 
             #Setting The Original File Onto Current File
@@ -67,7 +73,13 @@ def RunProcess2ToSql():
             VariableManager.process2Loading.config(text="TRANSFERRING TO SQL")
             print("Changes Detected")
             
-            CsvReader.ReadProcess2Csv()
+            while True:
+                try:
+                    CsvReader.ReadProcess2Csv()
+                    break
+                except:
+                    pass
+
             Sql.InsertDataToProcess2Table(CsvReader.dfVt2)
 
             #Setting The Original File Onto Current File
@@ -105,7 +117,13 @@ def RunProcess3ToSql():
             VariableManager.process3Loading.config(text="TRANSFERRING TO SQL")
             print("Changes Detected")
             
-            CsvReader.ReadProcess3Csv()
+            while True:
+                try:
+                    CsvReader.ReadProcess3Csv()
+                    break
+                except:
+                    pass
+
             Sql.InsertDataToProcess3Table(CsvReader.dfVt3)
 
             #Setting The Original File Onto Current File
@@ -143,7 +161,13 @@ def RunProcess4ToSql():
             VariableManager.process4Loading.config(text="TRANSFERRING TO SQL")
             print("Changes Detected")
             
-            CsvReader.ReadProcess4Csv()
+            while True:
+                try:
+                    CsvReader.ReadProcess4Csv()
+                    break
+                except:
+                    pass
+
             Sql.InsertDataToProcess4Table(CsvReader.dfVt4)
 
             #Setting The Original File Onto Current File
@@ -181,7 +205,13 @@ def RunProcess5ToSql():
             VariableManager.process5Loading.config(text="TRANSFERRING TO SQL")
             print("Changes Detected")
             
-            CsvReader.ReadProcess5Csv()
+            while True:
+                try:
+                    CsvReader.ReadProcess5Csv()
+                    break
+                except:
+                    pass
+
             Sql.InsertDataToProcess5Table(CsvReader.dfVt5)
 
             #Setting The Original File Onto Current File
@@ -219,7 +249,13 @@ def RunProcess6ToSql():
             VariableManager.process6Loading.config(text="TRANSFERRING TO SQL")
             print("Changes Detected")
             
-            CsvReader.ReadProcess6Csv()
+            while True:
+                try:
+                    CsvReader.ReadProcess6Csv()
+                    break
+                except:
+                    pass
+
             Sql.InsertDataToProcess6Table(CsvReader.dfVt6)
 
             #Setting The Original File Onto Current File
@@ -237,36 +273,39 @@ def RunInspectionMachineToSql():
     origFile = os.path.getmtime(r'\\192.168.2.19\ai_team\AI Program\Outputs\CompiledPiMachine\CompiledPIMachine.csv')
 
     while True:
-        VariableManager.inspectionMachineLoading.config(text=VariableManager.spinnerChars[VariableManager.inspectionMachineLoadingIndex])
+        try:
+            VariableManager.inspectionMachineLoading.config(text=VariableManager.spinnerChars[VariableManager.inspectionMachineLoadingIndex])
 
-        if VariableManager.inspectionMachineLoadingIndex < len(VariableManager.spinnerChars) - 1:
-            VariableManager.inspectionMachineLoadingIndex += 1
-        else:
-            VariableManager.inspectionMachineLoadingIndex = 0
+            if VariableManager.inspectionMachineLoadingIndex < len(VariableManager.spinnerChars) - 1:
+                VariableManager.inspectionMachineLoadingIndex += 1
+            else:
+                VariableManager.inspectionMachineLoadingIndex = 0
 
-        #Checking Changes In PiCompiled Using Forced Reading Of Csv
-        while True:
-            try:
-                currentFile = os.path.getmtime(r'\\192.168.2.19\ai_team\AI Program\Outputs\CompiledPiMachine\CompiledPIMachine.csv')
-                break
-            except:
-                print("Failed Reading Of PiCompiled Trying Again In 1 Seconds")
+            currentFile = os.path.getmtime(r'\\192.168.2.19\ai_team\AI Program\Outputs\CompiledPiMachine\CompiledPIMachine.csv')
+                
+            #If Changes Detected In File
+            if currentFile != origFile:
+                VariableManager.inspectionMachineLoading.config(text="TRANSFERRING TO SQL")
+                print("Changes Detected")
+                
+                while True:
+                    try:
+                        CsvReader.ReadPiMachineCsv()
+                        break
+                    except:
+                        pass
+                    
+                Sql.InsertDataToFC1InspectionMachineTable(CsvReader.dfPi)
 
-        #If Changes Detected In File
-        if currentFile != origFile:
-            VariableManager.inspectionMachineLoading.config(text="TRANSFERRING TO SQL")
-            print("Changes Detected")
-            
-            CsvReader.ReadPiMachineCsv()
-            Sql.InsertDataToFC1InspectionMachineTable(CsvReader.dfPi)
+                #Setting The Original File Onto Current File
+                origFile = currentFile
+                VariableManager.inspectionMachineLoading.config(text="TRANSFERRING DONE")
 
-            #Setting The Original File Onto Current File
-            origFile = currentFile
-            VariableManager.inspectionMachineLoading.config(text="TRANSFERRING DONE")
+            print("Waiting For Changes In PiCompiled")
 
-        print("Waiting For Changes In PiCompiled")
-
-        time.sleep(1)
+            time.sleep(1)
+        except:
+            print("Failed Trying Again")
 
 def RunUclLclToSql():
     #Checking Changes In CSV File Every Seconds
