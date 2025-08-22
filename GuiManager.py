@@ -152,7 +152,7 @@ def showGui():
     threading.Thread(target=ExecutableManager.RunProcess5ToSql).start()
     threading.Thread(target=ExecutableManager.RunProcess6ToSql).start()
     threading.Thread(target=ExecutableManager.RunInspectionMachineToSql).start()
-    threading.Thread(target=ExecutableManager.RunUclLclToSql).start()
+    # threading.Thread(target=ExecutableManager.RunUclLclToSql).start()
 
     threading.Thread(target=ExecutableManager.ChangeDate).start()
 

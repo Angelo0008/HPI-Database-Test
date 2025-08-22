@@ -25,3 +25,5 @@ inspectionMachineLoadingIndex = 0
 uclLclLoadingIndex = 0
 
 calendarPicker = None
+
+isProcessing = False
