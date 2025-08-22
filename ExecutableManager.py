@@ -6,6 +6,7 @@ import Sql
 def RunProcess1ToSql():
     
     if not VariableManager.isProcessing:
+        time.sleep(1)
         try:
             #Checking Changes In CSV File Every Seconds
 
@@ -30,8 +31,8 @@ def RunProcess1ToSql():
 
                 #If Changes Detected In File
                 if currentFile != origFile:
-                    Sql.SqlConnection()
                     VariableManager.isProcessing = True
+                    Sql.SqlConnection()
 
                     VariableManager.process1Loading.config(text="TRANSFERRING TO SQL")
                     print("Changes Detected")
@@ -44,6 +45,7 @@ def RunProcess1ToSql():
                             pass
 
                     Sql.InsertDataToProcess1Table(CsvReader.dfVt1)
+                    Sql.CloseConnection()
 
                     #Setting The Original File Onto Current File
                     origFile = currentFile
@@ -59,6 +61,7 @@ def RunProcess1ToSql():
 def RunProcess2ToSql():
     
     if not VariableManager.isProcessing:
+        time.sleep(2)
         try:
             #Checking Changes In CSV File Every Seconds
 
@@ -83,8 +86,8 @@ def RunProcess2ToSql():
 
                 #If Changes Detected In File
                 if currentFile != origFile:
-                    Sql.SqlConnection()
                     VariableManager.isProcessing = True
+                    Sql.SqlConnection()
 
                     VariableManager.process2Loading.config(text="TRANSFERRING TO SQL")
                     print("Changes Detected")
@@ -97,6 +100,7 @@ def RunProcess2ToSql():
                             pass
 
                     Sql.InsertDataToProcess2Table(CsvReader.dfVt2)
+                    Sql.CloseConnection()
 
                     #Setting The Original File Onto Current File
                     origFile = currentFile
@@ -114,6 +118,7 @@ def RunProcess2ToSql():
 def RunProcess3ToSql():
     
     if not VariableManager.isProcessing:
+        time.sleep(3)
         try:
             #Checking Changes In CSV File Every Seconds
 
@@ -138,8 +143,8 @@ def RunProcess3ToSql():
 
                 #If Changes Detected In File
                 if currentFile != origFile:
-                    Sql.SqlConnection()
                     VariableManager.isProcessing = True
+                    Sql.SqlConnection()
 
                     VariableManager.process3Loading.config(text="TRANSFERRING TO SQL")
                     print("Changes Detected")
@@ -152,6 +157,7 @@ def RunProcess3ToSql():
                             pass
 
                     Sql.InsertDataToProcess3Table(CsvReader.dfVt3)
+                    Sql.CloseConnection()
 
                     #Setting The Original File Onto Current File
                     origFile = currentFile
@@ -169,6 +175,7 @@ def RunProcess3ToSql():
 def RunProcess4ToSql():
     
     if not VariableManager.isProcessing:
+        time.sleep(4)
         try:
             #Checking Changes In CSV File Every Seconds
 
@@ -193,8 +200,8 @@ def RunProcess4ToSql():
 
                 #If Changes Detected In File
                 if currentFile != origFile:
-                    Sql.SqlConnection()
                     VariableManager.isProcessing = True
+                    Sql.SqlConnection()
 
                     VariableManager.process4Loading.config(text="TRANSFERRING TO SQL")
                     print("Changes Detected")
@@ -207,6 +214,7 @@ def RunProcess4ToSql():
                             pass
 
                     Sql.InsertDataToProcess4Table(CsvReader.dfVt4)
+                    Sql.CloseConnection()
 
                     #Setting The Original File Onto Current File
                     origFile = currentFile
@@ -224,6 +232,7 @@ def RunProcess4ToSql():
 def RunProcess5ToSql():
     
     if not VariableManager.isProcessing:
+        time.sleep(5)
         try:
 
             #Checking Changes In CSV File Every Seconds
@@ -249,8 +258,8 @@ def RunProcess5ToSql():
 
                 #If Changes Detected In File
                 if currentFile != origFile:
-                    Sql.SqlConnection()
                     VariableManager.isProcessing = True
+                    Sql.SqlConnection()
 
                     VariableManager.process5Loading.config(text="TRANSFERRING TO SQL")
                     print("Changes Detected")
@@ -263,6 +272,7 @@ def RunProcess5ToSql():
                             pass
 
                     Sql.InsertDataToProcess5Table(CsvReader.dfVt5)
+                    Sql.CloseConnection()
 
                     #Setting The Original File Onto Current File
                     origFile = currentFile
@@ -280,7 +290,7 @@ def RunProcess5ToSql():
 def RunProcess6ToSql():
     
     if not VariableManager.isProcessing:
-        
+        time.sleep(6)
         try:
             #Checking Changes In CSV File Every Seconds
 
@@ -305,8 +315,8 @@ def RunProcess6ToSql():
 
                 #If Changes Detected In File
                 if currentFile != origFile:
-                    Sql.SqlConnection()
                     VariableManager.isProcessing = True
+                    Sql.SqlConnection()
 
                     VariableManager.process6Loading.config(text="TRANSFERRING TO SQL")
                     print("Changes Detected")
@@ -319,6 +329,7 @@ def RunProcess6ToSql():
                             pass
 
                     Sql.InsertDataToProcess6Table(CsvReader.dfVt6)
+                    Sql.CloseConnection()
 
                     #Setting The Original File Onto Current File
                     origFile = currentFile
@@ -336,6 +347,7 @@ def RunProcess6ToSql():
 def RunInspectionMachineToSql():
     
     if not VariableManager.isProcessing:
+        time.sleep(7)
         try:
             #Checking Changes In CSV File Every Seconds
 
@@ -355,8 +367,8 @@ def RunInspectionMachineToSql():
                         
                     #If Changes Detected In File
                     if currentFile != origFile:
-                        Sql.SqlConnection()
                         VariableManager.isProcessing = True
+                        Sql.SqlConnection()
 
                         VariableManager.inspectionMachineLoading.config(text="TRANSFERRING TO SQL")
                         print("Changes Detected")
@@ -369,6 +381,7 @@ def RunInspectionMachineToSql():
                                 pass
                             
                         Sql.InsertDataToFC1InspectionMachineTable(CsvReader.dfPi)
+                        Sql.CloseConnection()
 
                         #Setting The Original File Onto Current File
                         origFile = currentFile
@@ -422,6 +435,11 @@ def RunUclLclToSql():
         print("Waiting For Changes In PiCompiled")
 
         time.sleep(1)
+
+def RunAll():
+    RunProcess1ToSql()
+    RunProcess2ToSql()
+    RunProcess3ToSql()
 
 def ChangeDate():
     while True:

@@ -9,3 +9,4 @@ import GuiManager
 Sql.SqlConnection()
 
 GuiManager.showGui()
+# %%
